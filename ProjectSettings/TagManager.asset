@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Package
   - Drop Off
+  - Boost
   layers:
   - Default
   - TransparentFX

@@ -7,11 +7,9 @@ public class driver : MonoBehaviour
 
     public float steerSpeed = 300f;
     public float moveSpeed = 20f;
-    // Start is called before the first frame update
-    void Start()
-    {
+    public float slowSpeed = 15f;
+    public float boostSpeed = 30f;
 
-    }
 
     // Update is called once per frame
     void Update()
@@ -22,5 +20,18 @@ public class driver : MonoBehaviour
 
         transform.Rotate(0, 0, -steerAmount);
         transform.Translate(0, moveAmount, 0);
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        moveSpeed = slowSpeed;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Boost")
+        {
+            moveSpeed = boostSpeed;
+        }
     }
 }
